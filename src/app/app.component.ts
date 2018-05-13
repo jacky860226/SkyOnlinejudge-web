@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import {enableProdMode} from '@angular/core';
+
+import { FooterComponent } from './footer/footer.component';
+
+enableProdMode();
 
 @Component({
   selector: 'app-root',
