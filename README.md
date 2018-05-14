@@ -2,13 +2,13 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
 
-## ng-bootstrap
+## 取得附加元件
 <!-- https://codingthesmartway.com/building-an-angular-5-project-with-bootstrap-4-and-firebase/ -->
 run
 ```sh
-npm install --save bootstrap
-npm install --save @ng-bootstrap/ng-bootstrap
+npm install
 ```
+就可以取得專案的附加元件，如果不執行的話就無法build
 
 ## Development server
 
