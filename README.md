@@ -2,13 +2,23 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
 
+記得要自行安裝
+
 ## 取得附加元件
 <!-- https://codingthesmartway.com/building-an-angular-5-project-with-bootstrap-4-and-firebase/ -->
 run
 ```sh
 npm install
 ```
-就可以取得專案的附加元件，如果不執行的話就無法build
+就可以取得專案的附加元件，如果不執行的話就無法build(`ng serve --open` or `ng build`)
+
+## Build with `.htaccess`
+
+Run `./build.sh` to build the project with `.htaccess`. the build artifacts will be stored in the `dist/` directory.
+
+You need to input the path of RewriteBase in your `.htaccess`
+
+for example, if you want to run your project at `http://localhost/jinkela`, then the RewriteBase is `/jinkela/`.
 
 ## Development server
 
