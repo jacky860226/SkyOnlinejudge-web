@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {enableProdMode} from '@angular/core';
 
 import { FooterComponent } from './footer/footer.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 enableProdMode();
 

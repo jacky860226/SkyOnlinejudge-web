@@ -3,6 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
 
 ## ng-bootstrap
+<!-- https://codingthesmartway.com/building-an-angular-5-project-with-bootstrap-4-and-firebase/ -->
 run
 ```sh
 npm install --save bootstrap
