@@ -4,7 +4,6 @@
     padding-top: 40px;
     color: #444444;
     background-color: #ffffff;
-    background-image: url(//i.imgur.com/1JlNX0n.jpg);
     background-size: cover;
 }
 #title-text {
@@ -13,4 +12,8 @@
     font-weight: 300;
     letter-spacing: 2px;
     margin: 40px 0;
+}
+#description-text {
+    color: #ffffff;
+    font-weight: 700;
 }

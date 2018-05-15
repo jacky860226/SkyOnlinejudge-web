@@ -8,6 +8,8 @@ import { AppRoutingModule } from './/app-routing.module';
 import { MainPageComponent } from './main-page/main-page.component';
 import { ProblemListComponent } from './problem-list/problem-list.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { ImageBarComponent } from './image-bar/image-bar.component';
+import { ChallengeListComponent } from './challenge-list/challenge-list.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     FooterComponent,
     MainPageComponent,
     ProblemListComponent,
-    NavBarComponent
+    NavBarComponent,
+    ImageBarComponent,
+    ChallengeListComponent
   ],
   imports: [
     BrowserModule,
