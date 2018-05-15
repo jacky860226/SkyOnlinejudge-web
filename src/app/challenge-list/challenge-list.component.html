@@ -1,1 +1,71 @@
 <app-image-bar></app-image-bar>
+<div class="container custom-container-width">
+    <div class="border-bottom mt-3 mb-3">
+        <h1 class="inline">Challenge</h1>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <form class="form-inline mb-4">
+                <div class="mx-sm-3">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupPrepend2">Uid</span>
+                        </div>
+                        <input type="text" class="form-control" id="validationDefaultUsername" pattern="[0-9]\d*" placeholder="Uid" aria-describedby="inputGroupPrepend2">
+                    </div>
+                </div>
+                <div class="mx-sm-3">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupPrepend2">Pid</span>
+                        </div>
+                        <input type="text" class="form-control" id="validationDefaultUsername" pattern="[0-9]\d*" placeholder="Pid" aria-describedby="inputGroupPrepend2">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Verdict</label>
+                    </div>
+                    <select class="custom-select" id="inputGroupSelect01">
+                        <option selected> -- select an option -- </option>
+                        <option *ngFor="let i of ResultCodes" value="{{i.val}}">{{i.key}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>使用者</th>
+                        <th>題目</th>
+                        <th>結果</th>
+                        <th class="hidden-xs">使用時間</th>
+                        <th>分數</th>
+                        <th>上傳時間</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#">7122</a></td>
+                        <td><a href="#">日月卦長</a></td>
+                        <td><a href="#" title="金坷垃">
+                            <span class="hidden-xs">金坷垃</span>
+                            <span class="visible-xs-inline">7123</span>
+                        </a></td>
+                        <td>Accept</td>
+                        <td class="hidden-xs">0 ms</td>
+                        <td>100</td>
+                        <td>2018-05-15 13:59:49</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
