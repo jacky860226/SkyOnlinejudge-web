@@ -11,7 +11,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroupPrepend2">Uid</span>
                         </div>
-                        <input type="text" class="form-control" name="uid" id="validationDefaultUsername" pattern="[0-9]\d*" placeholder="Uid" aria-describedby="inputGroupPrepend2">
+                        <input type="text" class="form-control" value="{{uidString}}" name="uid" id="validationDefaultUsername" pattern="[0-9]\d*" placeholder="Uid" aria-describedby="inputGroupPrepend2">
                     </div>
                 </div>
                 <div class="mx-sm-3">
@@ -19,7 +19,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroupPrepend2">Pid</span>
                         </div>
-                        <input type="text" class="form-control" name="pid" id="validationDefaultUsername" pattern="[0-9]\d*" placeholder="Pid" aria-describedby="inputGroupPrepend2">
+                        <input type="text" class="form-control" value="{{pidString}}" name="pid" id="validationDefaultUsername" pattern="[0-9]\d*" placeholder="Pid" aria-describedby="inputGroupPrepend2">
                     </div>
                 </div>
                 <div class="input-group">
@@ -27,8 +27,8 @@
                         <label class="input-group-text" for="inputGroupSelect01">Verdict</label>
                     </div>
                     <select class="custom-select" name="result" id="inputGroupSelect01">
-                        <option selected value> -- select an option -- </option>
-                        <option *ngFor="let i of ResultCodes" value="{{i.val}}">{{i.key}}</option>
+                        <option value > -- select an option -- </option>
+                        <option *ngFor="let i of ResultCodes" value="{{i.val}}" [selected]="(i.val+'') === resultString">{{i.key}}</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -69,7 +69,4 @@
         </div>
     </div>
     <ngb-pagination class="d-flex justify-content-center mt-3" (pageChange)="loadPage($event)" [(page)]="page" [collectionSize]="120" [maxSize]="4" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
-   
-    <hr>
-    <pre>Current page: {{page}}</pre>
 </div>

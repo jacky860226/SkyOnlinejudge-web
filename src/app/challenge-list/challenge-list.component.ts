@@ -15,12 +15,16 @@ export class ChallengeListComponent implements OnInit {
 
   page:number;
   getParam:any;
+
+  uidString:string;
+  pidString:string;
+  resultString:string;
   
   constructor( private router:Router ,private route: ActivatedRoute) {
     this.route.queryParams.subscribe(params => {
       this.getParam = params;
     });
-    console.log(this.getParam);
+    
   }
 
   ngOnInit() {
@@ -28,6 +32,10 @@ export class ChallengeListComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     if(id==NaN) this.page = 1;
     else this.page = id;
+    //console.log(this.getParam);
+    this.uidString=this.getParam['uid'];
+    this.pidString=this.getParam['pid'];
+    this.resultString=this.getParam['result'];
   }
   getResultCodeConstants(): void {
     //this.ResultCodeService.getResultCodes().subscribe(ResultCodes =>{ this.ResultCodes = ResultCodes});
@@ -50,6 +58,20 @@ export class ChallengeListComponent implements OnInit {
   }
 
   loadPage(page: number) {
-    this.router.navigateByUrl('chal/'+page);
+    var httpGetString = '';
+    var first=true;
+
+    for(let key in this.getParam) {
+      if(this.getParam[key]!=''){
+        //console.log(this.getParam[key]);
+        if(first){
+          httpGetString += '?';
+          first = false;
+        }else httpGetString += '&';
+        httpGetString += (key+'='+this.getParam[key]);
+      }
+    }
+    //console.log(httpGetString);
+    this.router.navigateByUrl('chal/'+page+httpGetString);
   }
 }
