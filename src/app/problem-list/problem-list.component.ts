@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ImageBarComponent } from '../image-bar/image-bar.component';
+
 @Component({
   selector: 'app-problem-list',
   templateUrl: './problem-list.component.html',
