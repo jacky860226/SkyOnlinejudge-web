@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { ImageBarComponent } from '../image-bar/image-bar.component';
 import { ResultCode } from '../ResultCode';
@@ -9,11 +10,24 @@ import { ResultCode } from '../ResultCode';
   styleUrls: ['./challenge-list.component.css']
 })
 export class ChallengeListComponent implements OnInit {
+  
   ResultCodes:ResultCode[];
-  constructor() { }
+
+  page:number;
+  getParam:any;
+  
+  constructor( private router:Router ,private route: ActivatedRoute) {
+    this.route.queryParams.subscribe(params => {
+      this.getParam = params;
+    });
+    console.log(this.getParam);
+  }
 
   ngOnInit() {
     this.getResultCodeConstants();
+    const id = +this.route.snapshot.paramMap.get('id');
+    if(id==NaN) this.page = 1;
+    else this.page = id;
   }
   getResultCodeConstants(): void {
     //this.ResultCodeService.getResultCodes().subscribe(ResultCodes =>{ this.ResultCodes = ResultCodes});
@@ -33,5 +47,9 @@ export class ChallengeListComponent implements OnInit {
     ];
 
     this.ResultCodes = ResultCodes;
+  }
+
+  loadPage(page: number) {
+    this.router.navigateByUrl('chal/'+page);
   }
 }

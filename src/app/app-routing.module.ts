@@ -9,7 +9,9 @@ const routes: Routes = [
   { path: '', redirectTo: 'skyOJ', pathMatch: 'full' },
   { path: 'problem', component: ProblemListComponent },
   { path: 'chal', component: ChallengeListComponent },
-  { path: 'skyOJ', component: MainPageComponent }
+  { path: 'chal/:id', component: ChallengeListComponent },
+  { path: 'skyOJ', component: MainPageComponent },
+  //{ path: '**', component: NotFoundPageComponent }
 ];
  
 @NgModule({
