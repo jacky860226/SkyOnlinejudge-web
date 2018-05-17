@@ -22,13 +22,13 @@
     text-align: left;
 }
 
-#title-blok-tmp {
+#title-blok {
     width: 100%;
     height: 600px;
     padding-top: 40px;
     color: #444444;
     background-color: #ffffff;
-    background-image: url(//i.imgur.com/1JlNX0n.jpg);
+    background-image : url('//i.imgur.com/I9fosHb.jpg');
     background-size: cover;
 }
 
