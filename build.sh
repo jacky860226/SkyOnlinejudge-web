@@ -1,6 +1,6 @@
 #!/bin/bash
 read -p "Please input RewriteBase you want in .htaccess: " RewriteBase
-ng build --prod
+ng build --prod --base-href ${RewriteBase}
 echo "RewriteEngine On" > ./dist/SkyOnlinejudge-web/.htaccess
 echo "RewriteBase "${RewriteBase} >> ./dist/SkyOnlinejudge-web/.htaccess
 echo "RewriteCond %{REQUEST_FILENAME} !-f" >> ./dist/SkyOnlinejudge-web/.htaccess

@@ -13,6 +13,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { RegisterPageComponent } from './register-page/register-page.component';
+import { ImageBarComponent } from './image-bar/image-bar.component';
+import { ChallengeListComponent } from './challenge-list/challenge-list.component';
 
 @NgModule({
   declarations: [

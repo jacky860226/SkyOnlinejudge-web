@@ -20,6 +20,12 @@ You need to input the path of RewriteBase in your `.htaccess`
 
 for example, if you want to run your project at `http://localhost/jinkela`, then the RewriteBase is `/jinkela/`.
 
+## 支援 IE
+
+https://angular.io/guide/browser-support
+
+將 ```src/polyfills.ts``` 裡面關於 IE 的部分註解拿掉就可以了，預設是沒有拿掉的
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
