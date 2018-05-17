@@ -1,0 +1,24 @@
+<div id="title-blok">
+  <div class="center">
+    <div id="login-box" class="inputBox" *ngIf="!login">
+      <div class="box-title">
+        <h3>Sky Online Judge<br></h3>
+        <h1>User login<br></h1>
+        <h1 style="color:black;text-align:right;font-style:italic;">-Programming Is the New Literacy</h1>
+      </div>
+
+      <label for="typeahead-basic">Nickname:</label>
+      <input id="typeahead-basic" type="text" class="form-control" >
+      <label for="typeahead-basic">password:</label>
+      <input id="typeahead-basic" type="text" class="form-control">
+      <br>
+      <label class="btn-primary" ngbButtonLabel (click)="login = !login">Login</label>
+      or 
+      <a routerLink="/register" style="color:white">Register</a>
+    </div>
+    <div id="logout" *ngIf="login">
+        <h3 class="box-title">Already logined!</h3>
+        <label class="btn-primary" ngbButtonLabel (click)="login = !login">Logout</label>
+    </div>
+  </div>
+</div>
