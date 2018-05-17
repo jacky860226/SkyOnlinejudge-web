@@ -3,11 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
  
 import { MainPageComponent }   from './main-page/main-page.component';
 import { ProblemListComponent }   from './problem-list/problem-list.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { RegisterPageComponent } from './register-page/register-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'skyOJ', pathMatch: 'full' },
   { path: 'problem', component: ProblemListComponent },
-  { path: 'skyOJ', component: MainPageComponent }
+  { path: 'skyOJ', component: MainPageComponent },
+  { path: 'login', component: LoginPageComponent },
+  { path: 'register', component: RegisterPageComponent}
 ];
  
 @NgModule({
