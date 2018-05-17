@@ -23,6 +23,8 @@ import { ChallengeListComponent } from './challenge-list/challenge-list.componen
     MainPageComponent,
     ProblemListComponent,
     NavBarComponent,
+    ImageBarComponent,
+    ChallengeListComponent,
     LoginPageComponent,
     RegisterPageComponent
   ],
