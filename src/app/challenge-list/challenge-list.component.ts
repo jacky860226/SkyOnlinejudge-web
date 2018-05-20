@@ -57,6 +57,9 @@ export class ChallengeListComponent implements OnInit {
     this.ResultCodes = ResultCodes;
   }
 
+  SubmitClick(){
+    this.loadPage(1);
+  }
   loadPage(page: number) {
     var httpGetString = '';
     var first=true;
@@ -71,7 +74,6 @@ export class ChallengeListComponent implements OnInit {
         httpGetString += (key+'='+this.getParam[key]);
       }
     }
-    //console.log(httpGetString);
     this.router.navigateByUrl('chal/'+page+httpGetString);
   }
 }
