@@ -16,6 +16,8 @@ import { ChallengeListComponent } from './challenge-list/challenge-list.componen
 import { HttpClientModule }    from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
+import { ListComponent } from './list/list.component';
+import { ContestListComponent } from './contest-list/contest-list.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { InMemoryDataService }  from './in-memory-data.service';
     ImageBarComponent,
     ChallengeListComponent,
     LoginPageComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    ListComponent,
+    ContestListComponent
   ],
   imports: [
     BrowserModule,

@@ -1,13 +1,15 @@
 import {ListDetails} from '../list/list'
 
-export class Problem {
+export class Contest {
     constructor(
         public id: number,
         public name: string,
-        public acrate: string
+        public mode: string,
+        public status: string
     ) { }
 }
-export class ProblemListDetails extends ListDetails{
+
+export class ContestListDetails extends ListDetails{
     constructor(
         public numberOfPages: number,
         public numberOfProblemsInOnePage: number,

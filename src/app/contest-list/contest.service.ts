@@ -5,7 +5,7 @@ import { ListService } from '../list/list.service';
 @Injectable({
   providedIn: 'root'
 })
-export class ProblemService extends ListService{
+export class ContestService extends ListService{
   constructor(http: HttpClient) {
     super(http);
   }
