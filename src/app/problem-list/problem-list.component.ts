@@ -15,6 +15,10 @@ export class ProblemListComponent implements OnInit {
 	Details: ProblemListDetails;
 	pages = [];
 	index : number;
+	filter = {
+		id : '',
+		name : 'ProblemName1'
+	};
 
 	constructor(private Service:ProblemService) {
 	}
@@ -22,12 +26,15 @@ export class ProblemListComponent implements OnInit {
 	ngOnInit() {
 		this.index = 1;
 		this.pages = [1 , 2 , 3 , 4 , 5];
-		this.getProblemListDetails();
+		// Display
+		// this.getProblemListDetails();
+		// Query
+		this.getProblemListQueryDetails();
 	}
 
-	getProblems(): void {
-		var start : number = (this.index - 1) * this.Details.numberOfProblemsInOnePage;
-		this.Service.getList <Problem>('problems' , start , this.Details.numberOfProblemsInOnePage)
+	getProblemsList(): void {
+		var start : number = (this.index - 1) * this.Details.numberOfItemsInOnePage;
+		this.Service.getList <Problem>('problems' , start , this.Details.numberOfItemsInOnePage)
 		.subscribe(List => this.List = List);
 	}
 
@@ -35,12 +42,29 @@ export class ProblemListComponent implements OnInit {
 		this.Service.getListDetails <ProblemListDetails>('problems')
 		.subscribe(Details =>{
 			this.Details = Details;
-			this.getProblems();
+			this.getProblemsList();
+		});
+	}
+
+	getProblemsListQuery(): void {
+		var start : number = (this.index - 1) * this.Details.numberOfItemsInOnePage;
+		this.Service.getListQuery <Problem>('problems' , this.filter , start , this.Details.numberOfItemsInOnePage)
+		.subscribe(List => this.List = List);
+	}
+
+	getProblemListQueryDetails(): void {
+		this.Service.getListQueryDetails <ProblemListDetails>('problems' , this.filter)
+		.subscribe(Details => {
+			this.Details = Details
+			this.getProblemsListQuery();
 		});
 	}
 
 	onSelect(index : number): void{
 		this.index = index;
-		this.getProblems();
+		// Display
+		// this.getProblemList();
+		// Query
+		this.getProblemsListQuery();
 	}
 }

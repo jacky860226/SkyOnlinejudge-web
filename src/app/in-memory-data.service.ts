@@ -2,16 +2,16 @@ import { InMemoryDbService , RequestInfo , ResponseOptions } from 'angular-in-me
 import { Problem , ProblemListDetails } from './problem-list/problem';
 
 const problems_data = [
-    { id: 11, name: 'Mr. Nice', acrate:"100%" },
-    { id: 12, name: 'Narco', acrate:"100%" },
-    { id: 13, name: 'Bombasto', acrate:"100%" },
-    { id: 14, name: 'Celeritas', acrate:"100%" },
-    { id: 15, name: 'Magneta', acrate:"100%" },
-    { id: 16, name: 'RubberMan', acrate:"100%" },
-    { id: 17, name: 'Dynama', acrate:"100%" },
-    { id: 18, name: 'Dr IQ', acrate:"100%" },
-    { id: 19, name: 'Magma', acrate:"100%" },
-    { id: 20, name: 'mMagma', acrate:"100%" }
+    { id: 11, name: 'ProblemName1', acrate:"100%" },
+    { id: 12, name: 'ProblemName2', acrate:"100%" },
+    { id: 13, name: 'ProblemName3', acrate:"100%" },
+    { id: 14, name: 'ProblemName4', acrate:"100%" },
+    { id: 15, name: 'ProblemName5', acrate:"100%" },
+    { id: 16, name: 'ProblemName6', acrate:"100%" },
+    { id: 17, name: 'ProblemName7', acrate:"100%" },
+    { id: 18, name: 'ProblemName8', acrate:"100%" },
+    { id: 19, name: 'ProblemName9', acrate:"100%" },
+    { id: 20, name: 'ProblemName10', acrate:"100%" }
 ];
 
 const challenges_data = [
@@ -49,25 +49,33 @@ export class InMemoryDataService implements InMemoryDbService {
         console.log(reqInfo);
         const collectionName = reqInfo.collectionName;
         if(collectionName == 'problems' || collectionName == 'challenges' || collectionName == 'contests'){
-            if(reqInfo.query.size != 0){
-                return this.GetList(collectionName , reqInfo);
+            if(reqInfo.id == 'query'){
+                if(reqInfo.query.get("start") == undefined){
+                    return this.GetListQueryDetails(reqInfo);
+                }else{
+                    return this.GetListQuery(reqInfo);
+                }
             }else{
-                return this.GetListDetails(collectionName , reqInfo);
+                if(reqInfo.query.size == 0){
+                    return this.GetListDetails(reqInfo);
+                }else{
+                    return this.GetList(reqInfo);
+                }
             }
         }else{
             return undefined;
         }
     }
-    GetList(str: string , reqInfo: RequestInfo) {
+    GetList(reqInfo: RequestInfo) {
         const info = this.GetInfoFromGetListUrl(reqInfo);
         
         let data : any;
         data = [];
         for (var _i = 0;_i < Number(info.total);_i++){
             if(Number(info.start) + _i >= 0 && Number(info.start) + _i < 10){
-                if(str == 'problems'){
+                if(info.collectionName == 'problems'){
                     data.push(problems_data[Number(info.start) + _i]);
-                }else if(str == 'problems'){
+                }else if(info.collectionName == 'challenges'){
                     data.push(challenges_data[Number(info.start) + _i]);
                 }else{
                     data.push(contests_data[Number(info.start) + _i]);
@@ -80,7 +88,7 @@ export class InMemoryDataService implements InMemoryDbService {
             body: data,
             status: 200
         } : {
-            body: { error: `ProblemsList not found` },
+            body: { error: `${info.collectionName}` + ` List not found` },
             status: 404
         };
         return reqInfo.utils.createResponse$(() => {
@@ -88,19 +96,19 @@ export class InMemoryDataService implements InMemoryDbService {
         });
     }
 
-    GetListDetails(str : string , reqInfo: RequestInfo){
+    GetListDetails(reqInfo: RequestInfo){
         let data : any;
         data = {
             'numberOfPages': 5,
-            'numberOfProblemsInOnePage': 2,
-            'numberOfProblems': 10
+            'numberOfItemsInOnePage': 2,
+            'numberOfItems': 10
         };
         const options: ResponseOptions = data ?
         {
             body: data,
             status: 200
         } : {
-            body: { error: `ProblemListDetails not found` },
+            body: { error: `${reqInfo.collectionName}` + ` ListDetails not found` },
             status: 404
         };
         return reqInfo.utils.createResponse$(() => {
@@ -108,10 +116,80 @@ export class InMemoryDataService implements InMemoryDbService {
         });
     }
 
+    GetListQuery(reqInfo: RequestInfo) {
+        const info = this.GetInfoFromGetListUrl(reqInfo);
+        var arr = this.GetListQueryArray(info);
+        let data : any[];
+        data = [];
+        for (var _i = 0;_i < Number(info.total);_i++){
+            if(Number(info.start) + _i >= 0 && Number(info.start) + _i < arr.length){
+                data.push(arr[Number(info.start) + _i]);
+            }
+        }
+
+        const options: ResponseOptions = data ?
+        {
+            body: data,
+            status: 200
+        } : {
+            body: { error: `${info.collectionName}` + ` List Query not found` },
+            status: 404
+        };
+        return reqInfo.utils.createResponse$(() => {
+            return this.finishOptions(options, reqInfo);;
+        });
+    }
+
+    GetListQueryDetails(reqInfo: RequestInfo){
+        const info = this.GetInfoFromGetListUrl(reqInfo);
+        var arr = this.GetListQueryArray(info);
+
+        let data = {
+            'numberOfPages': Math.round(arr.length / 2),
+            'numberOfItemsInOnePage': 2,
+            'numberOfItems': arr.length
+        };
+
+        const options: ResponseOptions = data ?
+        {
+            body: data,
+            status: 200
+        } : {
+            body: { error: `${info.collectionName}` + ` List Query Details not found` },
+            status: 404
+        };
+        return reqInfo.utils.createResponse$(() => {
+            return this.finishOptions(options, reqInfo);;
+        });
+    }
+
+    private GetListQueryArray(info : any): any[]{
+        let arr: any[];
+        if(info.collectionName == "problems"){
+            arr = problems_data;
+        }else if(info.collectionName == "challenges"){
+            arr = challenges_data;
+        }else{
+            arr = contests_data;
+        }
+        info.query.forEach((value , key)=>{
+            if(key != "start" && key != "total" && value[0] != ""){
+                var reg = new RegExp(value[0] + "+")
+                arr = arr.filter(
+                    x => reg.test(String(x[key]))
+                );
+            }
+        })
+        return arr;
+    }
+
     private GetInfoFromGetListUrl(reqInfo: RequestInfo): any {
         return {
-            'start': reqInfo.query.get('start'),
-            'total': reqInfo.query.get('total')
+            'collectionName': reqInfo.collectionName,
+            'event': reqInfo.id,
+            'query': reqInfo.query,
+            "start": (reqInfo.query.get("start") != undefined)?reqInfo.query.get("start")[0] : undefined,
+            "total": (reqInfo.query.get("total") != undefined)?reqInfo.query.get("total")[0] : undefined
         };
     }
 
