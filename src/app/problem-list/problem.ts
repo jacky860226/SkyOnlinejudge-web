@@ -10,9 +10,9 @@ export class Problem {
 export class ProblemListDetails extends ListDetails{
     constructor(
         public numberOfPages: number,
-        public numberOfProblemsInOnePage: number,
-        public numberOfProblems: number
+        public numberOfItemsInOnePage: number,
+        public numberOfItems: number
     ) {
-        super(numberOfPages , numberOfProblemsInOnePage , numberOfProblems);
+        super(numberOfPages , numberOfItemsInOnePage , numberOfItems);
     }
 }

@@ -28,8 +28,40 @@ export class ListService {
 	getListDetails <T> (listname : string): Observable<T> {
 		const url = `${this.Url}/${listname}`;
 		return this.http.get<T>(url).pipe(
-			tap(ProblemListDetails => this.log(`fetched ${listname} List Details`)),
+			tap(ListDetails => this.log(`fetched ${listname} List Details`)),
 			catchError(this.handleError('Fail to get ListDetails'))
+		);
+	}
+
+	getListQuery <T> (listname : string , filter : any , start : number , total : number ): Observable<T[]> {
+		var url = `${this.Url}/${listname}/query?start=${start}&total=${total}`;
+		for (var key in filter){
+			if(filter.hasOwnProperty(key)){
+				url += `&${key}=${filter[key]}`;
+			}
+		}
+		return this.http.get<T[]>(url).pipe(
+			tap(ListQuery => this.log(`fetched ${listname} List Query`)),
+			catchError(this.handleError('Fail to get ListQuery'))
+		);
+	}
+
+	getListQueryDetails <T> (listname : string , filter : any ): Observable<T> {
+		var url = `${this.Url}/${listname}/query?`;
+		var tf = true;
+		for (var key in filter){
+			if(filter.hasOwnProperty(key)){
+				if(tf){
+					url += `${key}=${filter[key]}`;
+					tf = false;
+				}else{
+					url += `&${key}=${filter[key]}`;
+				}
+			}
+		}
+		return this.http.get<T>(url).pipe(
+			tap(ListQuery => this.log(`fetched ${listname} List Query Details`)),
+			catchError(this.handleError('Fail to get List Query Details'))
 		);
 	}
 
