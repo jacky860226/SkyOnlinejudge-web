@@ -173,7 +173,7 @@ export class InMemoryDataService implements InMemoryDbService {
             arr = contests_data;
         }
         info.query.forEach((value , key)=>{
-            if(key != "start" && key != "total"){
+            if(key != "start" && key != "total" && value[0] != ""){
                 var reg = new RegExp(value[0] + "+")
                 arr = arr.filter(
                     x => reg.test(String(x[key]))

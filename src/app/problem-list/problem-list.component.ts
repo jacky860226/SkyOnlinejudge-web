@@ -16,7 +16,7 @@ export class ProblemListComponent implements OnInit {
 	pages = [];
 	index : number;
 	filter = {
-		// id : '1',
+		id : '',
 		name : 'ProblemName1'
 	};
 
