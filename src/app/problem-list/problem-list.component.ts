@@ -13,7 +13,7 @@ import { ProblemService } from './problem.service';
 export class ProblemListComponent implements OnInit {
 	List : Problem[];
 	Details: ProblemListDetails;
-	pages = [];
+	np :number;
 	index : number;
 	filter = {
 		id : '',
@@ -25,7 +25,6 @@ export class ProblemListComponent implements OnInit {
 
 	ngOnInit() {
 		this.index = 1;
-		this.pages = [1 , 2 , 3 , 4 , 5];
 		// Display
 		// this.getProblemListDetails();
 		// Query
@@ -40,7 +39,7 @@ export class ProblemListComponent implements OnInit {
 
 	getProblemListDetails(): void {
 		this.Service.getListDetails <ProblemListDetails>('problems')
-		.subscribe(Details =>{
+		.subscribe(Details =>{			
 			this.Details = Details;
 			this.getProblemsList();
 		});
@@ -56,6 +55,7 @@ export class ProblemListComponent implements OnInit {
 		this.Service.getListQueryDetails <ProblemListDetails>('problems' , this.filter)
 		.subscribe(Details => {
 			this.Details = Details
+			this.np = this.Details.numberOfPages;
 			this.getProblemsListQuery();
 		});
 	}
