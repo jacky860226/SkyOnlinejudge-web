@@ -20,7 +20,6 @@
             </tr>
         </tbody>
     </table>
-    <ngb-pagination class="d-flex justify-content-center mt-3" (pageChange)="onSelect($event)"  [collectionSize]="np*10" [maxSize]="4" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
-
+    <app-pagination [Items]="np" (pageChange)="onSelect($event)"></app-pagination>
     
 </div>

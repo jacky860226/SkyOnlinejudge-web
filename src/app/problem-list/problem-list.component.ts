@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ImageBarComponent } from '../image-bar/image-bar.component';
+import { PaginationComponent } from '../pagination/pagination.component';
+
 
 import { Problem , ProblemListDetails } from './problem';
 import { ProblemService } from './problem.service';

@@ -18,6 +18,8 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 import { ListComponent } from './list/list.component';
 import { ContestListComponent } from './contest-list/contest-list.component';
+import { PaginationComponent } from './pagination/pagination.component';
+import { ChallengeListSubmitFormComponent } from './challenge-list-submit-form/challenge-list-submit-form.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { ContestListComponent } from './contest-list/contest-list.component';
     LoginPageComponent,
     RegisterPageComponent,
     ListComponent,
-    ContestListComponent
+    ContestListComponent,
+    PaginationComponent,
+    ChallengeListSubmitFormComponent
   ],
   imports: [
     BrowserModule,
