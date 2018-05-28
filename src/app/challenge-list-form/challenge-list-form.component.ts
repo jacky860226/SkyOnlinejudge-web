@@ -2,17 +2,21 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ResultCode } from '../ResultCode';
 
 @Component({
-  selector: 'app-challenge-list-submit-form',
-  templateUrl: './challenge-list-submit-form.component.html',
-  styleUrls: ['./challenge-list-submit-form.component.css']
+  selector: 'app-challenge-list-form',
+  templateUrl: './challenge-list-form.component.html',
+  styleUrls: ['./challenge-list-form.component.css']
 })
-export class ChallengeListSubmitFormComponent implements OnInit {
+export class ChallengeListFormComponent implements OnInit {
 
-  @Input() uidString:string;
-  @Input() pidString:string;
-  @Input() resultString:string;
+  @Input() uidString:number;
+  @Input() pidString:number;
+  @Input() resultString:number;
 
-  @Output() SubmitClick = new EventEmitter<number>(true);
+  @Output() SubmitClick = new EventEmitter<object>(true);
+
+  uid:string;
+  pid:string;
+  result:string;
 
   ResultCodes:ResultCode[];
 
@@ -43,6 +47,13 @@ export class ChallengeListSubmitFormComponent implements OnInit {
   }
 
   onSubmit():void{
-    this.SubmitClick.emit();
+    const that = this;
+    let queryParams={
+      uid:''+(this.uidString==undefined?'':this.uidString),
+      pid:''+(this.pidString==undefined?'':this.pidString),
+      result:''+(this.resultString==undefined?'':this.resultString)
+    }
+    console.log(this.resultString);
+    that.SubmitClick.emit(queryParams);
   }
 }

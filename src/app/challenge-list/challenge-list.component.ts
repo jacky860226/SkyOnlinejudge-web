@@ -3,7 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { ImageBarComponent } from '../image-bar/image-bar.component';
 import { PaginationComponent } from '../pagination/pagination.component';
-import { ChallengeListSubmitFormComponent } from '../challenge-list-submit-form/challenge-list-submit-form.component';
+import { ConstantPool } from '@angular/compiler/src/constant_pool';
+import { empty } from 'rxjs';
 
 @Component({
   selector: 'app-challenge-list',
@@ -15,9 +16,9 @@ export class ChallengeListComponent implements OnInit {
   page:number;
   getParam:any;
 
-  uidString:string;
-  pidString:string;
-  resultString:string;
+  uidString:number;
+  pidString:number;
+  resultString:number;
   
   constructor( private router:Router ,private route: ActivatedRoute) {
     this.route.queryParams.subscribe(params => {
@@ -35,23 +36,15 @@ export class ChallengeListComponent implements OnInit {
     this.resultString=this.getParam['result'];
   }
 
-  SubmitClick(){
-    this.loadPage(1);
+  SubmitClick(query:object){
+    this.loadPageWithQuery(1,query);
+  }
+  loadPageWithQuery(page: number,query:object) {
+    console.log(query);
+    this.page=page;
+    this.router.navigate(['/chal/'+page], { queryParams: query });
   }
   loadPage(page: number) {
-    var httpGetString = '';
-    var first=true;
-    console.log(page);
-    for(let key in this.getParam) {
-      if(this.getParam[key]!=''){
-        console.log(this.getParam[key]);
-        if(first){
-          httpGetString += '?';
-          first = false;
-        }else httpGetString += '&';
-        httpGetString += (key+'='+this.getParam[key]);
-      }
-    }
-    this.router.navigateByUrl('chal/'+page+httpGetString);
+    this.loadPageWithQuery(page,this.getParam);
   }
 }

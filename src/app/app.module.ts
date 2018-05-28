@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule }   from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -19,7 +20,7 @@ import { InMemoryDataService }  from './in-memory-data.service';
 import { ListComponent } from './list/list.component';
 import { ContestListComponent } from './contest-list/contest-list.component';
 import { PaginationComponent } from './pagination/pagination.component';
-import { ChallengeListSubmitFormComponent } from './challenge-list-submit-form/challenge-list-submit-form.component';
+import { ChallengeListFormComponent } from './challenge-list-form/challenge-list-form.component';
 
 @NgModule({
   declarations: [
@@ -35,10 +36,11 @@ import { ChallengeListSubmitFormComponent } from './challenge-list-submit-form/c
     ListComponent,
     ContestListComponent,
     PaginationComponent,
-    ChallengeListSubmitFormComponent
+    ChallengeListFormComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     NgbModule.forRoot(),
     HttpClientModule,

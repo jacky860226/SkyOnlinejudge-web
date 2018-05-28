@@ -5,7 +5,7 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <app-challenge-list-submit-form (SubmitClick)="SubmitClick()" [uidString]="uidString" [pidString]="pidString" [resultString]="resultString"></app-challenge-list-submit-form>
+            <app-challenge-list-form (SubmitClick)="SubmitClick($event)" [uidString]="uidString" [pidString]="pidString" [resultString]="resultString"></app-challenge-list-form>
 
             <table class="table table-striped">
                 <thead>
