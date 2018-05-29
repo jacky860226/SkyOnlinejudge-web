@@ -12,10 +12,10 @@ const routes: Routes = [
   { path: 'problem', component: ProblemListComponent },
   { path: 'skyOJ', component: MainPageComponent },
   { path: 'login', component: LoginPageComponent },
-  { path: 'register', component: RegisterPageComponent}
+  { path: 'register', component: RegisterPageComponent},
   { path: 'chal', component: ChallengeListComponent },
   { path: 'chal/:id', component: ChallengeListComponent },
-  { path: 'skyOJ', component: MainPageComponent },
+  { path: 'skyOJ', component: MainPageComponent }
   //{ path: '**', component: NotFoundPageComponent }
 ];
  
