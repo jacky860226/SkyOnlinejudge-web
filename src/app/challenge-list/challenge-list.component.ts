@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { ImageBarComponent } from '../image-bar/image-bar.component';
-import { PaginationComponent } from '../pagination/pagination.component';
 import { ConstantPool } from '@angular/compiler/src/constant_pool';
 import { empty } from 'rxjs';
 
@@ -31,9 +29,9 @@ export class ChallengeListComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     if(id==null) this.page = 1;
     else this.page = +id;
-    this.uidString=this.getParam['uid'];
-    this.pidString=this.getParam['pid'];
-    this.resultString=this.getParam['result'];
+    this.uidString=(this.getParam['uid']==undefined?'':this.getParam['uid']);
+    this.pidString=(this.getParam['pid']==undefined?'':this.getParam['pid']);
+    this.resultString=(this.getParam['result']==undefined?'':this.getParam['result']);
   }
 
   SubmitClick(query:object){
@@ -42,7 +40,7 @@ export class ChallengeListComponent implements OnInit {
   loadPageWithQuery(page: number,query:object) {
     console.log(query);
     this.page=page;
-    this.router.navigate(['/chal/'+page], { queryParams: query });
+    this.router.navigate(['/chal/list/'+page], { queryParams: query });
   }
   loadPage(page: number) {
     this.loadPageWithQuery(page,this.getParam);

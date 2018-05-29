@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ResultCode } from '../ResultCode';
 
 @Component({
@@ -14,16 +15,22 @@ export class ChallengeListFormComponent implements OnInit {
 
   @Output() SubmitClick = new EventEmitter<object>(true);
 
-  uid:string;
-  pid:string;
-  result:string;
+  uid:number;
+  pid:number;
 
   ResultCodes:ResultCode[];
+
+  listForm:FormGroup
 
   constructor() { }
 
   ngOnInit() {
     this.getResultCodeConstants();
+    this.listForm = new FormGroup({
+      'uid': new FormControl(this.uidString),
+      'pid': new FormControl(this.pidString),
+      'result': new FormControl(this.resultString)
+    });
   }
 
   getResultCodeConstants(): void {

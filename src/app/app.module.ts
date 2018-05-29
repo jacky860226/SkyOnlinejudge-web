@@ -21,6 +21,7 @@ import { ListComponent } from './list/list.component';
 import { ContestListComponent } from './contest-list/contest-list.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { ChallengeListFormComponent } from './challenge-list-form/challenge-list-form.component';
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ChallengeListFormComponent } from './challenge-list-form/challenge-list
     ListComponent,
     ContestListComponent,
     PaginationComponent,
-    ChallengeListFormComponent
+    ChallengeListFormComponent,
+    NotFoundPageComponent
   ],
   imports: [
     BrowserModule,
