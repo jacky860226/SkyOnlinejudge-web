@@ -4,7 +4,6 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 import { LoginData, RegData, ResponseData } from './datatype';
-import { pbkdf2 } from 'crypto';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json'/*,'accept': 'application/json' */})
