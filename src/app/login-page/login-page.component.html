@@ -8,11 +8,12 @@
       </div>
 
       <label for="typeahead-basic">Nickname:</label>
-      <input id="typeahead-basic" type="text" class="form-control" >
+      <input type="text" class="form-control" [(ngModel)]="data.username">
       <label for="typeahead-basic">password:</label>
-      <input id="typeahead-basic" type="text" class="form-control">
+      <input type="password" class="form-control" [(ngModel)]="data.password">
+      <div id="error" *ngIf="error"><h1 style="color:red;" [(ngModel)]="error_message">{{error_message}}</h1></div>
       <br>
-      <label class="btn-primary" ngbButtonLabel (click)="login = !login">Login</label>
+      <label class="btn-primary" ngbButtonLabel (click)="submit()">Login</label>
       or 
       <a routerLink="/register" style="color:white">Register</a>
     </div>
