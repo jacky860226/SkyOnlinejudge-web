@@ -19,6 +19,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 import { ListComponent } from './list/list.component';
 import { ContestListComponent } from './contest-list/contest-list.component';
+import { ProblemViewComponent } from './problem-view/problem-view.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { ChallengeListFormComponent } from './challenge-list-form/challenge-list-form.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
@@ -36,6 +37,7 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
     RegisterPageComponent,
     ListComponent,
     ContestListComponent,
+    ProblemViewComponent,
     PaginationComponent,
     ChallengeListFormComponent,
     NotFoundPageComponent

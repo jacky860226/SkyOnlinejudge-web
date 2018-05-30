@@ -7,7 +7,7 @@ export class Challenge {
         public problem: string,
         public result: string,
         public time: string,
-        public score: string,
+        public score: number,
         public uploadtime: string
     ) { }
 }
