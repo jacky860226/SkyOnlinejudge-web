@@ -1,0 +1,36 @@
+<form class="form-inline mb-4" (ngSubmit)="onSubmit()" #listForm="ngForm">
+  <div class="mx-sm-3">
+      <div class="input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroupPrepend2">Uid</span>
+          </div>
+          <input type="text" class="form-control" name="uid" id="validationDefaultUsername" pattern="[0-9]\d*" placeholder="Uid" [(ngModel)]="uidString" #uid="ngModel">
+      </div>
+  </div>
+  <div class="mx-sm-3">
+      <div class="input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroupPrepend2">Pid</span>
+          </div>
+          <input type="text" class="form-control" name="pid" id="validationDefaultUsername" pattern="[0-9]\d*" placeholder="Pid" [(ngModel)]="pidString" #pid="ngModel">
+      </div>
+  </div>
+  <div class="input-group">
+      <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Verdict</label>
+      </div>
+      <select class="custom-select" name="result" id="inputGroupSelect01" [(ngModel)]="resultString">
+          <option value > -- select an option -- </option>
+          <option *ngFor="let i of ResultCodes" value="{{i.val}}" [selected]="(i.val+'') === resultString">{{i.key}}</option>
+      </select>
+  </div>
+  <div class="form-group">
+      <button type="submit" class="btn btn-primary" [disabled]="listForm.invalid">Submit</button>
+  </div>
+</form>
+<ngb-alert type="danger" [dismissible]="false" *ngIf="uid.invalid && (uid.dirty || uid.touched)">
+    <strong>Error!</strong> Uid only can be an interger
+</ngb-alert>
+<ngb-alert type="danger" [dismissible]="false" *ngIf="pid.invalid && (pid.dirty || pid.touched)">
+    <strong>Error!</strong> Pid only can be an interger
+</ngb-alert>
