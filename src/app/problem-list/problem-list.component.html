@@ -1,1 +1,26 @@
 <app-image-bar></app-image-bar>
+<div class="container custom-container-width">
+    <div class="border-bottom mt-3 mb-3">
+        <h1 class="inline">Problems</h1>
+    </div>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th style="width: 10%"></th>
+                <th style="width: 60%">NAME</th>
+                <th style="width: 30%">Submit AC rate</th>
+            </tr>
+        </thead>
+        <tbody class="ProblemList">
+            <tr *ngFor="let Problem of List">
+                <td>{{Problem.id}}</td>
+                <td>{{Problem.name}}</td>
+                <td>{{Problem.acrate}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <ngb-pagination class="d-flex justify-content-center mt-3" (pageChange)="onSelect($event)"  [collectionSize]="np*10" [maxSize]="4" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+
+    
+</div>
