@@ -1,15 +1,15 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-ligh">
-  <a class="navbar-brand" routerLink="/skyOJ"><img class="mr-2" height="28" src="https://i.imgur.com/3XOJ02E.png" alt="Sky online Judge">Sky online Judge</a>
+  <a class="navbar-brand" routerLink="/"><img class="mr-2" height="28" src="https://i.imgur.com/3XOJ02E.png" alt="Sky online Judge">Sky online Judge</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" (click)="toggleCollapsed()" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon" ngToggler></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown" [ngbCollapse]="isCollapsed">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/problem">Problems</a>
+        <a class="nav-link" routerLink="/problem/list">Problems</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/chal">Challenges</a>
+        <a class="nav-link" routerLink="/chal/list">Challenges</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/contest">Contest</a>

@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule }   from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -23,6 +24,9 @@ import { HighlightCodeDirective } from './render/highlight-code.directive';
 import { HtmlDisplayPipe } from './render/html-display.pipe';
 import { MdDisplayPipe } from './render/md-display.pipe';
 import { ChallengeViewComponent } from './challenge-view/challenge-view.component';
+import { PaginationComponent } from './pagination/pagination.component';
+import { ChallengeListFormComponent } from './challenge-list-form/challenge-list-form.component';
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 
 @NgModule({
   declarations: [
@@ -42,11 +46,16 @@ import { ChallengeViewComponent } from './challenge-view/challenge-view.componen
     HtmlDisplayPipe,
     MdDisplayPipe,
     ChallengeViewComponent
+    PaginationComponent,
+    ChallengeListFormComponent,
+    NotFoundPageComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     NgbModule.forRoot(),
+    FormsModule,
     HttpClientModule,
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
