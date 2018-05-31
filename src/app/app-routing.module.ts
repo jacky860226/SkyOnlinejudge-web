@@ -8,6 +8,7 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 import { ChallengeListComponent }   from './challenge-list/challenge-list.component';
 
 import { ProblemViewComponent } from './problem-view/problem-view.component';
+import { ChallengeViewComponent } from './challenge-view/challenge-view.component';
 import { NotFoundPageComponent }   from './not-found-page/not-found-page.component';
 
 
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'chal/list', component: ChallengeListComponent },
   { path: 'chal/list/:id', component: ChallengeListComponent },
   { path: '', component: MainPageComponent },
-  { path: 'problem-view', component: ProblemViewComponent },
+  { path: 'problem/view', component: ProblemViewComponent },
+  { path: 'chal/result/view', component: ChallengeViewComponent }
   { path: '**', component: NotFoundPageComponent }
 ];
  

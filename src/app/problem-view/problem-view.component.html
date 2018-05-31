@@ -31,7 +31,16 @@
 			<hr>
 		</div>
 		<div class = "col-md-10">
-
+			<p>HTML</p>
+			<div [innerHTML]="ProblemView.html | htmlDisplay"></div>
+			<hr>
+			<p>Markdown</p>
+			<div [innerHTML]="ProblemView.markdown | mdDisplay"></div>
+			<hr>
+			<p>Code Highlight</p>
+			<div>
+				<code class ="c++">{{code}}</code>
+			</div>
 		</div>
 	</div>
 </div>
