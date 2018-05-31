@@ -19,6 +19,10 @@ import { InMemoryDataService }  from './in-memory-data.service';
 import { ListComponent } from './list/list.component';
 import { ContestListComponent } from './contest-list/contest-list.component';
 import { ProblemViewComponent } from './problem-view/problem-view.component';
+import { HighlightCodeDirective } from './render/highlight-code.directive';
+import { HtmlDisplayPipe } from './render/html-display.pipe';
+import { MdDisplayPipe } from './render/md-display.pipe';
+import { ChallengeViewComponent } from './challenge-view/challenge-view.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,11 @@ import { ProblemViewComponent } from './problem-view/problem-view.component';
     RegisterPageComponent,
     ListComponent,
     ContestListComponent,
-    ProblemViewComponent
+    ProblemViewComponent,
+    HighlightCodeDirective,
+    HtmlDisplayPipe,
+    MdDisplayPipe,
+    ChallengeViewComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,58 @@
+<div class="container custom-container-width"> 
+	<div class="row">
+		<div class="col-md-4">
+			<table class="table table-bordered">
+				<tbody>
+					<tr>
+						<td>上傳編號</td>
+						<td>{{ChallengeView.uploadid}}</td>
+					</tr>
+					<tr>
+						<td>上傳時間</td>
+						<td>{{ChallengeView.uploadtime}}</td>
+					</tr>
+					<tr>
+						<td>題目</td>
+						<td>{{ChallengeView.problem}}</td>
+					</tr>
+					<tr>
+						<td>使用者</td>
+						<td>{{ChallengeView.user}}</td>
+					</tr>
+					<tr>
+						<td>總得分</td>
+						<td>{{ChallengeView.score}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-8">
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">State</th>
+						<th scope="col">Runtime</th>
+						<th scope="col">Memory</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let testcase of ChallengeView.testcaselist ; let i = index">
+						<td>{{i}}</td>
+						<td [ngStyle]=getcolor(testcase.state)>{{testcase.state}}</td>
+						<td>{{testcase.runtime}}</td>
+						<td>{{testcase.memory}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<code class ="c++">
+				{{ChallengeView.uploadcode}}
+			</code>
+		</div>
+	</div>
+</div>
+
