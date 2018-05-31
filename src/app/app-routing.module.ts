@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'chal/list/:id', component: ChallengeListComponent },
   { path: '', component: MainPageComponent },
   { path: 'problem/view', component: ProblemViewComponent },
-  { path: 'chal/result/view', component: ChallengeViewComponent }
+  { path: 'chal/result/view', component: ChallengeViewComponent },
   { path: '**', component: NotFoundPageComponent }
 ];
  

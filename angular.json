@@ -25,7 +25,14 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/ace-builds/src-noconflict/ace.js",
+              "node_modules/ace-builds/src-noconflict/theme-twilight.js",
+              "node_modules/ace-builds/src-noconflict/mode-c_cpp.js",
+              "node_modules/ace-builds/src-noconflict/keybinding-emacs.js",
+              "node_modules/ace-builds/src-noconflict/keybinding-vim.js",
+              "node_modules/ace-builds/src-noconflict/snippets/c_cpp.js"
+            ]
           },
           "configurations": {
             "production": {

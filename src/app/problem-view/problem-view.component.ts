@@ -3,6 +3,7 @@ import { ProblemView } from './problem-view';
 import { HtmlDisplayPipe } from "../render/html-display.pipe";
 import { MdDisplayPipe } from "../render/md-display.pipe";
 import { ProblemViewService } from './problem-view.service';
+import * as ace from '../../../node_modules/ace-builds/src-noconflict/ace.js';
 
 @Component({
   selector: 'app-problem-view',
@@ -28,5 +29,9 @@ export class ProblemViewComponent implements OnInit {
         	pdf: ''
 		};
 		this.code = 'int main(){\n std::cout << "Hello World";\n }\n//12345678901234567890123456789//12345678901234567890123456789';
+		var editor = ace.edit("editor");
+		editor.setTheme("ace/theme/twilight");
+		var JavaScriptMode = ace.require("ace/mode/c_cpp").Mode;
+		editor.session.setMode(new JavaScriptMode());
 	}
 }
