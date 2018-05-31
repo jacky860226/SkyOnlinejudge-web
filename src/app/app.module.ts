@@ -45,7 +45,7 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
     HighlightCodeDirective,
     HtmlDisplayPipe,
     MdDisplayPipe,
-    ChallengeViewComponent
+    ChallengeViewComponent,
     PaginationComponent,
     ChallengeListFormComponent,
     NotFoundPageComponent
