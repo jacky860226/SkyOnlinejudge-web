@@ -1,0 +1,34 @@
+<div class="container custom-container-width"> 
+	<div class="row">
+		<div class="col-sm-12">
+			<h2>1. a/b問題</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<form>
+				<div class="form-group">
+					<label for="language" class="col-sm-2">Compiler</label>
+					<select class="form-control" name="compiler">
+						<option value="cpp14">c++14/gnu c++ compiler 5.4.0 | options: -O2 -std=c++14</option>
+					</select>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<div id="editor"></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="form-group">
+							<input type="file" class="form-control-file" id="input" (change)="fileselect($event)">
+						</div>
+					</div>
+					<div class="col-sm-6 text-right">
+						<a class="btn btn-success" href="/chal/list" role="button">Submit</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

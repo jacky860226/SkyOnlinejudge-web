@@ -7,19 +7,18 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th style="width: 10%"></th>
-                <th style="width: 60%">NAME</th>
-                <th style="width: 30%">Submit AC rate</th>
+                <th scope="col"></th>
+                <th scope="col">NAME</th>
+                <th scope="col">Submit AC rate</th>
             </tr>
         </thead>
         <tbody class="ProblemList">
             <tr *ngFor="let Problem of List">
                 <td>{{Problem.id}}</td>
-                <td>{{Problem.name}}</td>
+                <td><a href="/problem/view/{{Problem.id}}">{{Problem.name}}</a></td>
                 <td>{{Problem.acrate}}</td>
             </tr>
         </tbody>
     </table>
-    <app-pagination [Items]="np" (pageChange)="onSelect($event)"></app-pagination>
-    
+    <app-pagination [(page)]="page" [Items]="Details.numberOfPages" (pageChange)="loadPage($event)"></app-pagination>
 </div>
