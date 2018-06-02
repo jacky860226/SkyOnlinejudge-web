@@ -1,4 +1,6 @@
 import { Component, OnInit , ElementRef, Directive } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+
 import { ProblemView } from './problem-view';
 import { HtmlDisplayPipe } from "../render/html-display.pipe";
 import { MdDisplayPipe } from "../render/md-display.pipe";
@@ -15,11 +17,19 @@ export class ProblemViewComponent implements OnInit {
 	ProblemView : ProblemView;
 	converted : string;
 	code : string;
+	page : number;
+
 	constructor(private HtmlDisplayPipe: HtmlDisplayPipe,
 				private MdDisplayPipe: MdDisplayPipe,
-				private ProblemViewService : ProblemViewService) { }
+				private ProblemViewService : ProblemViewService,
+				private router:Router,
+				private route: ActivatedRoute) { }
 
 	ngOnInit() {
+		const id = this.route.snapshot.paramMap.get('id');
+    	if(id==null) this.page = 1;
+		else this.page = +id;
+
 		this.ProblemView = {
 			topic : '1. a/b',
 			judge: 'Normal Judge',
@@ -29,9 +39,5 @@ export class ProblemViewComponent implements OnInit {
         	pdf: ''
 		};
 		this.code = 'int main(){\n std::cout << "Hello World";\n }\n//12345678901234567890123456789//12345678901234567890123456789';
-		var editor = ace.edit("editor");
-		editor.setTheme("ace/theme/twilight");
-		var JavaScriptMode = ace.require("ace/mode/c_cpp").Mode;
-		editor.session.setMode(new JavaScriptMode());
 	}
 }

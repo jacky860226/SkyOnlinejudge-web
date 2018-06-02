@@ -17,7 +17,6 @@ import { ChallengeListComponent } from './challenge-list/challenge-list.componen
 import { HttpClientModule }    from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
-import { ListComponent } from './list/list.component';
 import { ContestListComponent } from './contest-list/contest-list.component';
 import { ProblemViewComponent } from './problem-view/problem-view.component';
 import { HighlightCodeDirective } from './render/highlight-code.directive';
@@ -27,6 +26,7 @@ import { ChallengeViewComponent } from './challenge-view/challenge-view.componen
 import { PaginationComponent } from './pagination/pagination.component';
 import { ChallengeListFormComponent } from './challenge-list-form/challenge-list-form.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import { ProblemSubmitComponent } from './problem-submit/problem-submit.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,6 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
     ChallengeListComponent,
     LoginPageComponent,
     RegisterPageComponent,
-    ListComponent,
     ContestListComponent,
     ProblemViewComponent,
     HighlightCodeDirective,
@@ -48,7 +47,8 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
     ChallengeViewComponent,
     PaginationComponent,
     ChallengeListFormComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    ProblemSubmitComponent
   ],
   imports: [
     BrowserModule,

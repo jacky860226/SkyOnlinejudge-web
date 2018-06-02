@@ -1,0 +1,8 @@
+.container.custom-container-width{
+    max-width: 90%;
+}
+
+#editor {
+    position: relative;
+    height: 400px;
+}
