@@ -1,25 +1,25 @@
-<form class="form-inline mb-4" (ngSubmit)="onSubmit()" #listForm="ngForm">
+<form class="form-inline mb-4" (ngSubmit)="onSubmit(listForm)" #listForm="ngForm">
   <div class="mx-sm-3">
       <div class="input-group">
           <div class="input-group-prepend">
-              <span class="input-group-text" id="inputGroupPrepend2">Uid</span>
+              <span class="input-group-text">Uid</span>
           </div>
-          <input type="text" class="form-control" name="uid" id="validationDefaultUsername" pattern="[0-9]\d*" placeholder="Uid" [(ngModel)]="uidString" #uid="ngModel">
+          <input type="text" class="form-control" name="uid"  pattern="[0-9]\d*" placeholder="Uid" #uid="ngModel" [(ngModel)]=uidNum>
       </div>
   </div>
   <div class="mx-sm-3">
       <div class="input-group">
           <div class="input-group-prepend">
-              <span class="input-group-text" id="inputGroupPrepend2">Pid</span>
+              <span class="input-group-text" >Pid</span>
           </div>
-          <input type="text" class="form-control" name="pid" id="validationDefaultUsername" pattern="[0-9]\d*" placeholder="Pid" [(ngModel)]="pidString" #pid="ngModel">
+          <input type="text" class="form-control" name="pid" pattern="[0-9]\d*" placeholder="Pid" #pid="ngModel" [(ngModel)]=pidNum>
       </div>
   </div>
   <div class="input-group">
       <div class="input-group-prepend">
           <label class="input-group-text" for="inputGroupSelect01">Verdict</label>
       </div>
-      <select class="custom-select" name="result" id="inputGroupSelect01" [(ngModel)]="resultString">
+      <select class="custom-select" name="result" [(ngModel)]=resultNum>
           <option value > -- select an option -- </option>
           <option *ngFor="let i of ResultCodes" value="{{i.val}}" [selected]="(i.val+'') === resultString">{{i.key}}</option>
       </select>

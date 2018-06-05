@@ -1,10 +1,34 @@
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">請輸入密碼來繼續操作</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form (ngSubmit)="adminModalOnSubmit(adminForm)" #adminForm="ngForm">
+    <div class="modal-body">
+      <div class="form-group row">
+        <label for="inputPassword" class="col-sm-2 col-form-label">密碼</label>
+        <div class="col-md-9">
+          <input type="password" class="form-control" placeholder="Password" name="passward" required="required" ngModel>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <small><span id="admin-check-info" style="color: red;">密碼錯誤</span></small>
+      <span style="color: green;">Success!</span>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</ng-template>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-ligh">
   <a class="navbar-brand" routerLink="/"><img class="mr-2" height="28" src="https://i.imgur.com/3XOJ02E.png" alt="Sky online Judge">Sky online Judge</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" (click)="toggleCollapsed()" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon" ngToggler></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown" [ngbCollapse]="isCollapsed">
-    <ul class="navbar-nav">
+  <div class="collapse navbar-collapse" [ngbCollapse]="isCollapsed">
+    <ul class="navbar-nav  mr-auto">
       <li class="nav-item">
         <a class="nav-link" routerLink="/problem/list">Problems</a>
       </li>
@@ -12,7 +36,7 @@
         <a class="nav-link" routerLink="/chal/list">Challenges</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/contest">Contest</a>
+        <a class="nav-link" routerLink="/contest/list">Contest</a>
       </li>
       <li class="nav-item dropdown" ngbDropdown>
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" ngbDropdownToggle>
@@ -28,8 +52,13 @@
         </div>
       </li>
     </ul>
-    <div class="ml-auto">
-      <a class="nav-link" routerLink="/login">LOGIN</a>
-    </div>
+    <ul class="navbar-nav nav-right">
+        <li class="nav-item">
+          <button class="btn btn-link nav-link" (click)="openLg(content)">Admin</button>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login"> Login</a>
+        </li>
+    </ul>
   </div>
 </nav>

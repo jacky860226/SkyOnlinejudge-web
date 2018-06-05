@@ -10,6 +10,9 @@ import { ChallengeListComponent }   from './challenge-list/challenge-list.compon
 import { ProblemViewComponent } from './problem-view/problem-view.component';
 import { ProblemSubmitComponent } from './problem-submit/problem-submit.component'
 import { ChallengeViewComponent } from './challenge-view/challenge-view.component';
+import { ContestListComponent } from './contest-list/contest-list.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
+
 import { NotFoundPageComponent }   from './not-found-page/not-found-page.component';
 
 const routes: Routes = [
@@ -19,10 +22,13 @@ const routes: Routes = [
   { path: 'register', component: RegisterPageComponent},
   { path: 'chal/list', component: ChallengeListComponent },
   { path: 'chal/list/:id', component: ChallengeListComponent },
+  { path: 'contest/list', component: ContestListComponent },
+  { path: 'contest/list/:id', component: ContestListComponent },
   { path: '', component: MainPageComponent },
   { path: 'problem/view/:id', component: ProblemViewComponent },
   { path: 'problem/submit/:id', component: ProblemSubmitComponent },
   { path: 'chal/view/:id', component: ChallengeViewComponent },
+  { path: 'admin', component: AdminPageComponent },
   { path: '**', component: NotFoundPageComponent }
 ];
  

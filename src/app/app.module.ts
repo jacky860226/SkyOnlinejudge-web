@@ -27,6 +27,7 @@ import { PaginationComponent } from './pagination/pagination.component';
 import { ChallengeListFormComponent } from './challenge-list-form/challenge-list-form.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { ProblemSubmitComponent } from './problem-submit/problem-submit.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -48,14 +49,14 @@ import { ProblemSubmitComponent } from './problem-submit/problem-submit.componen
     PaginationComponent,
     ChallengeListFormComponent,
     NotFoundPageComponent,
-    ProblemSubmitComponent
+    ProblemSubmitComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     NgbModule.forRoot(),
-    FormsModule,
     HttpClientModule,
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests

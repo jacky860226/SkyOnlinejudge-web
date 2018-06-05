@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 import { ResultCode } from '../ResultCode';
 
 @Component({
@@ -9,28 +8,19 @@ import { ResultCode } from '../ResultCode';
 })
 export class ChallengeListFormComponent implements OnInit {
 
-  @Input() uidString:number;
-  @Input() pidString:number;
-  @Input() resultString:number;
+  @Input() uidNum:number;
+  @Input() pidNum:number;
+  @Input() resultNum:number;
 
   @Output() SubmitClick = new EventEmitter<object>(true);
 
-  uid:number;
-  pid:number;
 
   ResultCodes:ResultCode[];
-
-  listForm:FormGroup
 
   constructor() { }
 
   ngOnInit() {
     this.getResultCodeConstants();
-    this.listForm = new FormGroup({
-      'uid': new FormControl(this.uidString),
-      'pid': new FormControl(this.pidString),
-      'result': new FormControl(this.resultString)
-    });
   }
 
   getResultCodeConstants(): void {
@@ -53,14 +43,15 @@ export class ChallengeListFormComponent implements OnInit {
     this.ResultCodes = ResultCodes;
   }
 
-  onSubmit():void{
+  onSubmit(listForm):void{
+    //console.log(listForm);
     const that = this;
     let queryParams={
-      uid:''+(this.uidString==undefined?'':this.uidString),
-      pid:''+(this.pidString==undefined?'':this.pidString),
-      result:''+(this.resultString==undefined?'':this.resultString)
+      uid:listForm.value.uid,
+      pid:listForm.value.pid,
+      result:listForm.value.result
     }
-    console.log(this.resultString);
+    //console.log(this.resultNum);
     that.SubmitClick.emit(queryParams);
   }
 }

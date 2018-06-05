@@ -1,5 +1,3 @@
-import {ListDetails} from '../list/list'
-
 export class Contest {
     constructor(
         public id: number,
@@ -9,12 +7,10 @@ export class Contest {
     ) { }
 }
 
-export class ContestListDetails extends ListDetails{
+export class ContestListDetails{
     constructor(
         public numberOfPages: number,
         public numberOfProblemsInOnePage: number,
         public numberOfProblems: number
-    ) {
-        super(numberOfPages , numberOfProblemsInOnePage , numberOfProblems);
-    }
+    ) {}
 }
